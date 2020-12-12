@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CastView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,SendDataDelegate {
+class CastView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     
     

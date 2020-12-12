@@ -92,13 +92,12 @@ class CrewListView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,U
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "commonVCCell", for: indexPath)as! CommonCell
             cell.backgroundColor = .white
-            
             cell.castNameLabel.text! = "\(self.crew[indexPath.row].name!)"
+            
             if self.crew[indexPath.row].profilePath != nil {
                 cell.posterImageView.downloaded(from: "https://image.tmdb.org/t/p/w500/\(self.crew[indexPath.row].profilePath!)")
             }else{
                 cell.posterImageView.image=UIImage(named: "profile_blank_m")
-                
             }
 //
             return cell

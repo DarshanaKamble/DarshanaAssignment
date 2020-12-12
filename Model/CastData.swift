@@ -7,3 +7,34 @@
 //
 
 import Foundation
+struct CastData : Decodable {
+    let cast : [Cast]
+    let crew : [Crew]
+
+    private enum CodingKeys : String,CodingKey{
+        case cast="cast"
+        case crew="crew"
+    }
+}
+
+struct Cast : Decodable {
+    var name : String?
+    var profilePath : String?
+
+
+    private enum CodingKeys : String,CodingKey {
+        case name="name"
+        case profilePath="profile_path"
+    }
+}
+
+struct Crew : Decodable {
+    var name : String?
+    var profilePath : String?
+
+
+    private enum CodingKeys : String,CodingKey {
+        case name="name"
+        case profilePath="profile_path"
+    }
+}

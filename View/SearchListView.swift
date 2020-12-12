@@ -30,6 +30,8 @@ class SearchListView: UIView,UICollectionViewDelegate,UICollectionViewDataSource
 //            }
 //        })
         
+        print("Add Data")
+        
         setUpViews()
 
     }

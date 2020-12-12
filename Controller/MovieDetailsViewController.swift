@@ -19,7 +19,6 @@ class MovieDetailsViewController: UIViewController,UIScrollViewDelegate {
     private var lang=[Language]()
     private var video=[Video]()
     private var movieTitle="",moviewoverview="",releaseDate=""
-    var sendDataDelegate:SendDataDelegate?
     
     var navbarHeight:CGFloat=0.0
     
@@ -29,6 +28,21 @@ class MovieDetailsViewController: UIViewController,UIScrollViewDelegate {
         view.backgroundColor = .white
         navbarHeight=CommonClass.getNavBarHeight(navigationController: self.navigationController!)
         
+        getMovieDetails(completion: {
+            DispatchQueue.main.async {
+                
+                self.getVideo(completion: {
+                    DispatchQueue.main.async {
+                        
+                        self.setup()
+                    }
+                })
+            }
+        })
+        
+    }
+    
+    func setup(){
         
         scrollView = UIScrollView(frame: bottomView.bounds)
         scrollView.backgroundColor = UIColor.black
@@ -40,24 +54,6 @@ class MovieDetailsViewController: UIViewController,UIScrollViewDelegate {
         scrollView.delegate = self
         scrollView.showsVerticalScrollIndicator=false
         scrollView.showsHorizontalScrollIndicator=false
-
-        
-        
-        getMovieDetails(completion: {
-            DispatchQueue.main.async {
-                
-                self.getVideo(completion: {
-                    DispatchQueue.main.async {
-
-                    self.setup()
-                        }
-                })
-            }
-        })
-        
-    }
-    
-    func setup(){
         
         view.addSubview(webView)
         webView.topAnchor.constraint(equalTo: view.topAnchor, constant: navbarHeight).isActive=true
@@ -147,18 +143,18 @@ class MovieDetailsViewController: UIViewController,UIScrollViewDelegate {
         similarMoviesView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive=true
         similarMoviesView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive=true
         similarMoviesView.heightAnchor.constraint(equalToConstant: 180).isActive=true
-                
+        
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height:480 + 450)
         
         do{
             if (video.first?.key) != nil {
-                            let url = try URL (string:"https://www.youtube.com/embed/\(video.first!.key!)")
+                let url = try URL (string:"https://www.youtube.com/embed/\(video.first!.key!)")
                 if url != nil{
                     let request = URLRequest(url: url!)
                     webView.load(request)
                     
                 }else{
-//                    webView.title="Not available"
+                    //                    webView.title="Not available"
                     print("URL is not in proper format")
                 }
             }else{
