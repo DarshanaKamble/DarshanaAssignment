@@ -26,28 +26,6 @@ struct MoviesDetails :Decodable {
     
 }
 
-//struct MoviesDetails : Decodable{
-//
-////    var movieDetails : [MovieDetails]
-////    var language : [Language]
-//////    var genre : [Genre]
-////    var crew : [Crew]
-//    var title : String?
-//    var releaseDate : String?
-//
-//    private enum CodingKeys : String,CodingKey{
-//
-////                case m="spoken_languages"
-//
-//        case title="title"
-//        case releaseDate="release_date"
-////
-//////        case genre="genres"
-////        case crew="production_companies"
-////        case language="spoken_languages"
-//    }
-//}
-
 struct Language : Decodable{
     var englishName : String?
     

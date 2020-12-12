@@ -14,7 +14,7 @@ class CastView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UICol
     
     
     
-    var movieId=""//"671583"
+    var movieId=""
     private var apiService=APIService()
     private var movieCredit=[Cast]()
 

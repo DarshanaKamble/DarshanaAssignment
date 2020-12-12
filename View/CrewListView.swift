@@ -11,7 +11,7 @@ import UIKit
 
 class CrewListView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
-    var movieId="671583"
+    var movieId=""
     private var apiService=APIService()
     private var crew=[Crew]()
     private var cast=[Cast]()

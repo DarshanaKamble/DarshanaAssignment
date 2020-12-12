@@ -11,7 +11,7 @@ import UIKit
 
 class SimilarMoviesView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
-    var movieId="602211"
+    var movieId=""
     private var apiService=APIService()
     private var similarMovies=[SameData]()
     
