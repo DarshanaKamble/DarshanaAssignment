@@ -30,7 +30,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         searchBar.delegate=self
         
         navbarHeight=CommonClass.getNavBarHeight(navigationController: self.navigationController!)
-
+        print("Darshana Kamble")
         getPopularMovies(completion: {
             
             DispatchQueue.main.async {
